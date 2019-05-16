@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Search &mdash; ILAO 2.19.0 documentation</title>
+  <title>Rentervention &mdash; ILAO 2.19.0 documentation</title>
   
 
   
@@ -27,7 +27,7 @@
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="#" /> 
+    <link rel="search" title="Search" href="search.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -63,7 +63,7 @@
 
           
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="#" method="get">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -103,7 +103,6 @@
 <li class="toctree-l1"><a class="reference internal" href="sms_integrations.html">SMS Integrations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data_integrations.html">Data Integrations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tech_styles.html">Website Styles</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rentervention.html">Rentervention</a></li>
 </ul>
 
             
@@ -149,12 +148,14 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>Search</li>
+      <li>Rentervention</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
+            <a href="_sources/rentervention.rst.txt" rel="nofollow"> View page source</a>
+          
         
       </li>
     
@@ -166,19 +167,31 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <noscript>
-  <div id="fallback" class="admonition warning">
-    <p class="last">
-      Please activate JavaScript to enable the search
-      functionality.
-    </p>
-  </div>
-  </noscript>
+  <div class="section" id="rentervention">
+<h1>Rentervention<a class="headerlink" href="#rentervention" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="core-configuration">
+<h2>Core Configuration<a class="headerlink" href="#core-configuration" title="Permalink to this headline">¶</a></h2>
+<p>We use AWS to host the platform:</p>
+<ul class="simple">
+<li>2 instances of EC2<ul>
+<li>DEV (rentervention_dev)
+* IP: 100.24.45.197
+* DNS: ec2-100-24-45-197.compute-1.amazonaws.com</li>
+<li>Prod (rentervention Prod)
+* IP: 54.172.103.77
+* DNS: ec2-54-172-103-77.compute-1.amazonaws.com</li>
+</ul>
+</li>
+<li>S3 Instances
+* private-rentervention holds generated files
+* public-rentervention contains content</li>
+<li>RDS instance: rentervention-prod</li>
+</ul>
+<p>DialogFlow
+Dialogflow powers the chatbot.</p>
+</div>
+</div>
 
-  
-  <div id="search-results">
-  
-  </div>
 
            </div>
            
@@ -223,7 +236,6 @@
       <script type="text/javascript" src="_static/jquery.js"></script>
       <script type="text/javascript" src="_static/underscore.js"></script>
       <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="_static/searchtools.js"></script>
 
   
 
@@ -233,14 +245,7 @@
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-  <script type="text/javascript">
-    jQuery(function() { Search.loadIndex("searchindex.js"); });
-  </script>
-  
-  <script type="text/javascript" id="searchindexloader"></script>
-   
-
+  </script> 
 
 </body>
 </html>

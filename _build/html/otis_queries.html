@@ -225,7 +225,7 @@
 <div class="section" id="legal-issues-with-any-triage-rules">
 <h2>Legal issues with any triage rules<a class="headerlink" href="#legal-issues-with-any-triage-rules" title="Permalink to this headline">¶</a></h2>
 <p>Returns all triage rules with their associated taxonomy terms.</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">Select</span> <span class="k">distinct</span> <span class="n">taxonomy_entity_index</span><span class="p">.</span><span class="n">entity_id</span><span class="p">,</span>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">Select</span> <span class="k">distinct</span> <span class="n">taxonomy_entity_index</span><span class="p">.</span><span class="n">entity_id</span><span class="p">,</span>
 <span class="n">taxonomy_entity_index</span><span class="p">.</span><span class="n">tid</span><span class="p">,</span>
 <span class="n">taxonomy_term_data</span><span class="p">.</span><span class="n">name</span><span class="p">,</span>
 <span class="n">field_data_title_field</span><span class="p">.</span><span class="n">title_field_value</span>
@@ -241,7 +241,7 @@
 </div>
 <div class="section" id="legal-issues-with-published-triage-rules">
 <h2>Legal issues with published triage rules<a class="headerlink" href="#legal-issues-with-published-triage-rules" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="k">DISTINCT</span> <span class="n">taxonomy_entity_index</span><span class="p">.</span><span class="n">entity_id</span><span class="p">,</span>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="k">DISTINCT</span> <span class="n">taxonomy_entity_index</span><span class="p">.</span><span class="n">entity_id</span><span class="p">,</span>
 <span class="n">taxonomy_entity_index</span><span class="p">.</span><span class="n">tid</span><span class="p">,</span>
 <span class="n">taxonomy_term_data</span><span class="p">.</span><span class="n">name</span><span class="p">,</span>
 <span class="n">field_data_title_field</span><span class="p">.</span><span class="n">title_field_value</span>
@@ -260,7 +260,7 @@
 <div class="section" id="legal-issues-with-no-triage-rules-regardless-of-level">
 <h2>Legal issues with no triage rules, regardless of level<a class="headerlink" href="#legal-issues-with-no-triage-rules-regardless-of-level" title="Permalink to this headline">¶</a></h2>
 <p>The tid not in clause excludes terms under About Lawyers, Courts &amp; Hearings, and Practice Resources.</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span>SELECT tid, name from taxonomy_term_data where tid not in
+<div class="highlight-sql"><div class="highlight"><pre><span></span>SELECT tid, name from taxonomy_term_data where tid not in
 (SELECT taxonomy_entity_index.tid from taxonomy_entity_index
 inner join taxonomy_term_data
 on taxonomy_entity_index.tid = taxonomy_term_data.tid
@@ -281,7 +281,7 @@ AND vid = 61 and tid not in
 <div class="section" id="legal-issues-with-no-triage-rules-lowest-level-terms-only">
 <h2>Legal issues with no triage rules, lowest level terms only<a class="headerlink" href="#legal-issues-with-no-triage-rules-lowest-level-terms-only" title="Permalink to this headline">¶</a></h2>
 <p>The tid not in clause excludes terms under About Lawyers, Courts &amp; Hearings, and Practice Resources. Only taxonomy terms that are not parent terms are included.  This means only those terms that are the lowest level terms are returned.</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span>SELECT tid, name from taxonomy_term_data where tid not in
+<div class="highlight-sql"><div class="highlight"><pre><span></span>SELECT tid, name from taxonomy_term_data where tid not in
 (SELECT taxonomy_entity_index.tid from taxonomy_entity_index
 inner join taxonomy_term_data
 on taxonomy_entity_index.tid = taxonomy_term_data.tid
@@ -307,7 +307,7 @@ and tid not in (SELECT parent from taxonomy_term_hierarchy)
 <div class="section" id="gets-all-intake-settings-by-zip-code-when-coded-by-city">
 <h4>Gets all intake settings by zip code when coded by city<a class="headerlink" href="#gets-all-intake-settings-by-zip-code-when-coded-by-city" title="Permalink to this headline">¶</a></h4>
 <p>Returns all published intake settings and the associated zip codes.</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">entity_id</span> <span class="k">as</span> <span class="n">intake_settings_id</span><span class="p">,</span>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">entity_id</span> <span class="k">as</span> <span class="n">intake_settings_id</span><span class="p">,</span>
 <span class="n">tid</span> <span class="k">as</span> <span class="n">term_id</span><span class="p">,</span>
 <span class="n">name</span> <span class="k">as</span> <span class="n">zip_code</span>
 <span class="k">from</span> <span class="n">field_data_field_cities</span>
@@ -323,7 +323,7 @@ and tid not in (SELECT parent from taxonomy_term_hierarchy)
 </div>
 <div class="section" id="gets-all-intake-settings-by-zip-code-when-coded-to-counties">
 <h4>Gets all intake settings by zip code when coded to counties<a class="headerlink" href="#gets-all-intake-settings-by-zip-code-when-coded-to-counties" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">entity_id</span> <span class="k">as</span> <span class="n">intake_settings_id</span><span class="p">,</span>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">entity_id</span> <span class="k">as</span> <span class="n">intake_settings_id</span><span class="p">,</span>
 <span class="n">tid</span> <span class="k">as</span> <span class="n">term_id</span><span class="p">,</span>
 <span class="n">name</span> <span class="k">as</span> <span class="n">zip_code</span>
 <span class="k">from</span> <span class="n">field_data_field_counties</span>
@@ -340,7 +340,7 @@ and tid not in (SELECT parent from taxonomy_term_hierarchy)
 </div>
 <div class="section" id="gets-all-illinois-zip-codes-use-for-statewide-intake-settings">
 <h4>Gets all Illinois zip codes; use for statewide intake settings<a class="headerlink" href="#gets-all-illinois-zip-codes-use-for-statewide-intake-settings" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">Select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">taxonomy_term_hierarchy</span>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">Select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">taxonomy_term_hierarchy</span>
 <span class="k">inner</span> <span class="k">join</span> <span class="n">taxonomy_term_data</span>
 <span class="k">on</span> <span class="n">taxonomy_term_data</span><span class="p">.</span><span class="n">tid</span> <span class="o">=</span> <span class="n">taxonomy_term_hierarchy</span><span class="p">.</span><span class="n">tid</span>
 <span class="k">WHERE</span> <span class="n">parent</span> <span class="k">in</span>
@@ -354,7 +354,7 @@ and tid not in (SELECT parent from taxonomy_term_hierarchy)
 </div>
 <div class="section" id="intake-settings-by-geographic-reach">
 <h4>Intake settings by geographic reach<a class="headerlink" href="#intake-settings-by-geographic-reach" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span> <span class="k">SELECT</span> <span class="n">intake_settings_id</span><span class="p">,</span>
+<div class="highlight-sql"><div class="highlight"><pre><span></span> <span class="k">SELECT</span> <span class="n">intake_settings_id</span><span class="p">,</span>
  <span class="k">CASE</span>
   <span class="k">WHEN</span> <span class="n">intake_settings_id</span> <span class="k">in</span> <span class="p">(</span><span class="k">Select</span> <span class="n">entity_id</span> <span class="k">from</span> <span class="n">field_data_field_statewide</span> <span class="k">where</span> <span class="n">entity_type</span> <span class="o">=</span> <span class="s1">&#39;oas_intake_settings&#39;</span> <span class="k">and</span> <span class="n">field_data_field_statewide</span><span class="p">.</span><span class="n">field_statewide_value</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span> <span class="k">THEN</span> <span class="s1">&#39;statewide&#39;</span>
   <span class="k">WHEN</span> <span class="n">intake_settings_id</span> <span class="k">in</span> <span class="p">(</span><span class="k">Select</span> <span class="n">entity_id</span> <span class="k">from</span> <span class="n">field_data_field_cities</span> <span class="k">where</span> <span class="n">entity_type</span> <span class="o">=</span> <span class="s1">&#39;oas_intake_settings&#39;</span><span class="p">)</span> <span class="k">THEN</span> <span class="s1">&#39;city-limited&#39;</span>
@@ -370,7 +370,7 @@ and tid not in (SELECT parent from taxonomy_term_hierarchy)
 <h3>Services<a class="headerlink" href="#services" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="gets-all-services-by-zip-code-when-coded-by-city">
 <h4>Gets all services by zip code when coded by city<a class="headerlink" href="#gets-all-services-by-zip-code-when-coded-by-city" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span>  <span class="n">nid</span><span class="p">,</span>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">SELECT</span>  <span class="n">nid</span><span class="p">,</span>
 <span class="n">node</span><span class="p">.</span><span class="n">title</span> <span class="k">as</span> <span class="n">service_title</span><span class="p">,</span>
 <span class="n">node</span><span class="p">.</span><span class="n">status</span><span class="p">,</span>
 <span class="n">tid</span> <span class="k">as</span> <span class="n">term_name</span><span class="p">,</span>
@@ -390,7 +390,7 @@ and tid not in (SELECT parent from taxonomy_term_hierarchy)
 </div>
 <div class="section" id="id1">
 <h4>Gets all intake settings by zip code when coded to counties<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span>  <span class="n">nid</span><span class="p">,</span>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">SELECT</span>  <span class="n">nid</span><span class="p">,</span>
 <span class="n">node</span><span class="p">.</span><span class="n">title</span> <span class="k">as</span> <span class="n">service_title</span><span class="p">,</span>
 <span class="n">node</span><span class="p">.</span><span class="n">status</span><span class="p">,</span>
 <span class="n">tid</span> <span class="k">as</span> <span class="n">term_name</span><span class="p">,</span>
@@ -412,7 +412,7 @@ and tid not in (SELECT parent from taxonomy_term_hierarchy)
 </div>
 <div class="section" id="gets-all-services-by-zip-code-when-coded-to-zip-code">
 <h4>Gets all services by zip code when coded to zip code<a class="headerlink" href="#gets-all-services-by-zip-code-when-coded-to-zip-code" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span>  <span class="n">nid</span><span class="p">,</span>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">SELECT</span>  <span class="n">nid</span><span class="p">,</span>
 <span class="n">node</span><span class="p">.</span><span class="n">title</span> <span class="k">as</span> <span class="n">service_title</span><span class="p">,</span>
 <span class="n">node</span><span class="p">.</span><span class="n">status</span><span class="p">,</span>
 <span class="n">tid</span> <span class="k">as</span> <span class="n">term_name</span><span class="p">,</span>
@@ -430,7 +430,7 @@ and tid not in (SELECT parent from taxonomy_term_hierarchy)
 </div>
 <div class="section" id="gets-all-services-by-zip-code-when-statewide">
 <h4>Gets all services by zip code when statewide<a class="headerlink" href="#gets-all-services-by-zip-code-when-statewide" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span>  <span class="n">nid</span><span class="p">,</span>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">SELECT</span>  <span class="n">nid</span><span class="p">,</span>
 <span class="n">node</span><span class="p">.</span><span class="n">title</span> <span class="k">as</span> <span class="n">service_title</span><span class="p">,</span>
 <span class="n">node</span><span class="p">.</span><span class="n">status</span><span class="p">,</span>
 <span class="n">tid</span> <span class="k">as</span> <span class="n">term_name</span><span class="p">,</span>
@@ -448,7 +448,7 @@ and tid not in (SELECT parent from taxonomy_term_hierarchy)
 </div>
 <div class="section" id="gets-all-illinois-zip-codes-use-for-statewide-services">
 <h4>Gets all Illinois zip codes; use for statewide services<a class="headerlink" href="#gets-all-illinois-zip-codes-use-for-statewide-services" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">Select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">taxonomy_term_hierarchy</span>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">Select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">taxonomy_term_hierarchy</span>
 <span class="k">inner</span> <span class="k">join</span> <span class="n">taxonomy_term_data</span>
 <span class="k">on</span> <span class="n">taxonomy_term_data</span><span class="p">.</span><span class="n">tid</span> <span class="o">=</span> <span class="n">taxonomy_term_hierarchy</span><span class="p">.</span><span class="n">tid</span>
 <span class="k">WHERE</span> <span class="n">parent</span> <span class="k">in</span>
@@ -462,7 +462,7 @@ and tid not in (SELECT parent from taxonomy_term_hierarchy)
 </div>
 <div class="section" id="services-with-online-intake-settings-by-geographic-reach">
 <h4>Services with online intake settings by geographic reach<a class="headerlink" href="#services-with-online-intake-settings-by-geographic-reach" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">nid</span><span class="p">,</span>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">nid</span><span class="p">,</span>
 <span class="n">title</span> <span class="k">as</span> <span class="n">service_name</span><span class="p">,</span>
 <span class="n">status</span><span class="p">,</span>
 <span class="k">CASE</span>
@@ -490,7 +490,7 @@ and tid not in (SELECT parent from taxonomy_term_hierarchy)
 </div>
 <div class="section" id="triage-user">
 <h2>Triage User<a class="headerlink" href="#triage-user" title="Permalink to this headline">¶</a></h2>
-<div class="code sql highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Select</span>
+<div class="code sql highlight-default"><div class="highlight"><pre><span></span><span class="n">Select</span>
 <span class="n">triage_id</span><span class="p">,</span>
 <span class="n">oas_triage_user</span><span class="o">.</span><span class="n">uid</span><span class="p">,</span>
 <span class="n">age</span><span class="p">,</span>
@@ -528,7 +528,7 @@ and tid not in (SELECT parent from taxonomy_term_hierarchy)
 </div>
 <div class="section" id="triage-user-legal-problem">
 <h3>Triage user legal problem<a class="headerlink" href="#triage-user-legal-problem" title="Permalink to this headline">¶</a></h3>
-<div class="code sql highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Select</span> <span class="n">triage_id</span><span class="p">,</span>
+<div class="code sql highlight-default"><div class="highlight"><pre><span></span><span class="n">Select</span> <span class="n">triage_id</span><span class="p">,</span>
 <span class="n">CASE</span>
 <span class="n">WHEN</span> <span class="n">triage_id</span> <span class="ow">in</span> <span class="p">(</span><span class="n">Select</span> <span class="n">entity_id</span> <span class="kn">from</span> <span class="nn">field_data_field_triage_problem_history</span>
   <span class="n">where</span> <span class="n">entity_type</span> <span class="o">=</span> <span class="s1">&#39;oas_triage_user&#39;</span> <span class="n">order</span> <span class="n">by</span> <span class="n">delta</span> <span class="n">desc</span><span class="p">)</span> <span class="n">THEN</span>
@@ -557,7 +557,7 @@ and tid not in (SELECT parent from taxonomy_term_hierarchy)
 </div>
 <div class="section" id="triage-user-population">
 <h3>Triage user population<a class="headerlink" href="#triage-user-population" title="Permalink to this headline">¶</a></h3>
-<div class="code sql highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="n">entity_id</span> <span class="k">as</span> <span class="n">triage_id</span><span class="p">,</span>
+<div class="code sql highlight-default"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="n">entity_id</span> <span class="k">as</span> <span class="n">triage_id</span><span class="p">,</span>
 <span class="n">field_limited_populations_tid</span> <span class="k">as</span> <span class="n">term_id</span><span class="p">,</span>
 <span class="n">name</span> <span class="k">as</span> <span class="n">population_name</span><span class="p">,</span>
 <span class="n">FROM</span> <span class="n">field_data_field_limited_populations</span>
@@ -569,7 +569,7 @@ and tid not in (SELECT parent from taxonomy_term_hierarchy)
 </div>
 <div class="section" id="id2">
 <h2>Intake Settings<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
-<div class="code sql highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">Select</span> <span class="n">title</span> <span class="k">as</span> <span class="n">service</span><span class="p">,</span>
+<div class="code sql highlight-default"><div class="highlight"><pre><span></span> <span class="n">Select</span> <span class="n">title</span> <span class="k">as</span> <span class="n">service</span><span class="p">,</span>
  <span class="n">oas_intake_settings</span><span class="o">.</span><span class="n">entity_id</span> <span class="k">as</span> <span class="n">service_id</span><span class="p">,</span>
  <span class="n">intake_settings_id</span><span class="p">,</span>
  <span class="n">oas_intake_settings</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
@@ -638,7 +638,7 @@ and tid not in (SELECT parent from taxonomy_term_hierarchy)
 </div>
 <div class="section" id="intake-settings-legal-issues">
 <h3>Intake settings &amp; Legal issues<a class="headerlink" href="#intake-settings-legal-issues" title="Permalink to this headline">¶</a></h3>
-<div class="code sql highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="n">DISTINCT</span> <span class="n">intake_settings_id</span><span class="p">,</span>
+<div class="code sql highlight-default"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="n">DISTINCT</span> <span class="n">intake_settings_id</span><span class="p">,</span>
 <span class="n">oas_intake_settings</span><span class="o">.</span><span class="n">name</span> <span class="k">as</span> <span class="n">intake_settings_name</span><span class="p">,</span>
 <span class="n">enabled</span><span class="p">,</span>
 <span class="n">from_unixtime</span><span class="p">(</span><span class="n">created</span><span class="p">)</span> <span class="k">as</span> <span class="s1">&#39;created&#39;</span><span class="p">,</span>
@@ -658,7 +658,7 @@ and tid not in (SELECT parent from taxonomy_term_hierarchy)
 <h3>Financial Categories per Intake Setting<a class="headerlink" href="#financial-categories-per-intake-setting" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="assets">
 <h4>Assets<a class="headerlink" href="#assets" title="Permalink to this headline">¶</a></h4>
-<div class="code sql highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="n">field_data_oas_asset_categories</span><span class="o">.</span><span class="n">entity_id</span> <span class="k">as</span> <span class="n">intake_settings_id</span><span class="p">,</span>
+<div class="code sql highlight-default"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="n">field_data_oas_asset_categories</span><span class="o">.</span><span class="n">entity_id</span> <span class="k">as</span> <span class="n">intake_settings_id</span><span class="p">,</span>
 <span class="n">oas_intake_settings</span><span class="o">.</span><span class="n">name</span> <span class="k">as</span> <span class="n">intake_settings_name</span><span class="p">,</span>
 <span class="n">oas_asset_categories_target_id</span> <span class="k">as</span> <span class="n">financial_id</span><span class="p">,</span>
 <span class="n">ilao_oas_financial_category</span><span class="o">.</span><span class="n">name</span> <span class="k">as</span> <span class="n">asset</span><span class="p">,</span>
@@ -676,7 +676,7 @@ and tid not in (SELECT parent from taxonomy_term_hierarchy)
 </div>
 <div class="section" id="income">
 <h4>Income<a class="headerlink" href="#income" title="Permalink to this headline">¶</a></h4>
-<div class="code sql highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="n">field_data_oas_income_categories</span><span class="o">.</span><span class="n">entity_id</span> <span class="k">as</span> <span class="n">intake_settings_id</span><span class="p">,</span>
+<div class="code sql highlight-default"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="n">field_data_oas_income_categories</span><span class="o">.</span><span class="n">entity_id</span> <span class="k">as</span> <span class="n">intake_settings_id</span><span class="p">,</span>
 <span class="n">oas_intake_settings</span><span class="o">.</span><span class="n">name</span> <span class="k">as</span> <span class="n">intake_settings_name</span><span class="p">,</span>
 <span class="n">oas_income_categories_target_id</span> <span class="k">as</span> <span class="n">financial_id</span><span class="p">,</span>
 <span class="n">ilao_oas_financial_category</span><span class="o">.</span><span class="n">name</span> <span class="k">as</span> <span class="n">income</span><span class="p">,</span>
@@ -694,7 +694,7 @@ and tid not in (SELECT parent from taxonomy_term_hierarchy)
 </div>
 <div class="section" id="expenses">
 <h4>Expenses<a class="headerlink" href="#expenses" title="Permalink to this headline">¶</a></h4>
-<div class="code sql highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="n">field_data_oas_expense_categories</span><span class="o">.</span><span class="n">entity_id</span> <span class="k">as</span> <span class="n">intake_settings_id</span><span class="p">,</span>
+<div class="code sql highlight-default"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="n">field_data_oas_expense_categories</span><span class="o">.</span><span class="n">entity_id</span> <span class="k">as</span> <span class="n">intake_settings_id</span><span class="p">,</span>
 <span class="n">oas_intake_settings</span><span class="o">.</span><span class="n">name</span> <span class="k">as</span> <span class="n">intake_settings_name</span><span class="p">,</span>
 <span class="n">oas_expense_categories_target_id</span> <span class="k">as</span> <span class="n">financial_id</span><span class="p">,</span>
 <span class="n">ilao_oas_financial_category</span><span class="o">.</span><span class="n">name</span> <span class="k">as</span> <span class="n">income</span><span class="p">,</span>
@@ -713,7 +713,7 @@ and tid not in (SELECT parent from taxonomy_term_hierarchy)
 </div>
 <div class="section" id="intake-settings-waive-income-based-on-population">
 <h3>Intake settings: waive Income based on population<a class="headerlink" href="#intake-settings-waive-income-based-on-population" title="Permalink to this headline">¶</a></h3>
-<div class="code sql highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="n">field_data_oas_income_exempt</span><span class="o">.</span><span class="n">entity_id</span> <span class="k">as</span> <span class="n">intake_settings_id</span><span class="p">,</span>
+<div class="code sql highlight-default"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="n">field_data_oas_income_exempt</span><span class="o">.</span><span class="n">entity_id</span> <span class="k">as</span> <span class="n">intake_settings_id</span><span class="p">,</span>
 <span class="n">oas_income_exempt_tid</span> <span class="k">as</span> <span class="n">term_id</span><span class="p">,</span>
 <span class="n">taxonomy_term_data</span><span class="o">.</span><span class="n">name</span> <span class="k">as</span> <span class="n">population</span><span class="p">,</span>
 <span class="n">oas_intake_settings</span><span class="o">.</span><span class="n">enabled</span> <span class="k">as</span> <span class="n">status</span>
@@ -729,7 +729,7 @@ and tid not in (SELECT parent from taxonomy_term_hierarchy)
 <h2>Triage Rules<a class="headerlink" href="#triage-rules" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="list-of-triage-rules">
 <h3>List of triage rules<a class="headerlink" href="#list-of-triage-rules" title="Permalink to this headline">¶</a></h3>
-<div class="code sql highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="n">DISTINCT</span> <span class="n">nid</span><span class="p">,</span>
+<div class="code sql highlight-default"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="n">DISTINCT</span> <span class="n">nid</span><span class="p">,</span>
 <span class="n">field_data_title_field</span><span class="o">.</span><span class="n">title_field_value</span> <span class="k">as</span> <span class="n">title</span><span class="p">,</span>
 <span class="n">status</span><span class="p">,</span>
 <span class="n">from_unixtime</span><span class="p">(</span><span class="n">created</span><span class="p">)</span> <span class="k">as</span> <span class="n">created</span><span class="p">,</span>
@@ -742,7 +742,7 @@ and tid not in (SELECT parent from taxonomy_term_hierarchy)
 </div>
 <div class="section" id="triage-rules-with-associated-services">
 <h3>Triage rules with associated services<a class="headerlink" href="#triage-rules-with-associated-services" title="Permalink to this headline">¶</a></h3>
-<div class="code sql highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="n">DISTINCT</span> <span class="n">node</span><span class="o">.</span><span class="n">nid</span><span class="p">,</span>
+<div class="code sql highlight-default"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="n">DISTINCT</span> <span class="n">node</span><span class="o">.</span><span class="n">nid</span><span class="p">,</span>
 <span class="n">field_data_title_field</span><span class="o">.</span><span class="n">title_field_value</span> <span class="k">as</span> <span class="n">title</span><span class="p">,</span>
 <span class="n">node</span><span class="o">.</span><span class="n">status</span><span class="p">,</span>
 <span class="n">from_unixtime</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">created</span><span class="p">)</span> <span class="k">as</span> <span class="s1">&#39;created&#39;</span><span class="p">,</span>
@@ -762,7 +762,7 @@ and tid not in (SELECT parent from taxonomy_term_hierarchy)
 <div class="section" id="triage-rules-with-associated-legal-issues">
 <h3>Triage rules with associated legal issues<a class="headerlink" href="#triage-rules-with-associated-legal-issues" title="Permalink to this headline">¶</a></h3>
 <p>Mapping of legal issues tagged to a triage rules item.  Note that this query excludes anything but lowest level terms because legal issue must be an exact match.</p>
-<div class="code sql highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="n">DISTINCT</span> <span class="n">node</span><span class="o">.</span><span class="n">nid</span><span class="p">,</span>
+<div class="code sql highlight-default"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="n">DISTINCT</span> <span class="n">node</span><span class="o">.</span><span class="n">nid</span><span class="p">,</span>
 <span class="n">field_data_title_field</span><span class="o">.</span><span class="n">title_field_value</span> <span class="k">as</span> <span class="n">title</span><span class="p">,</span>
 <span class="n">node</span><span class="o">.</span><span class="n">status</span><span class="p">,</span>
 <span class="n">from_unixtime</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">created</span><span class="p">)</span> <span class="k">as</span> <span class="s1">&#39;created&#39;</span><span class="p">,</span>
@@ -782,7 +782,7 @@ and tid not in (SELECT parent from taxonomy_term_hierarchy)
 </div>
 <div class="section" id="triage-rules-webform-components">
 <h3>Triage rules webform components<a class="headerlink" href="#triage-rules-webform-components" title="Permalink to this headline">¶</a></h3>
-<div class="code sql highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="n">node</span><span class="o">.</span><span class="n">nid</span> <span class="k">as</span> <span class="n">triage_rules_id</span><span class="p">,</span>
+<div class="code sql highlight-default"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="n">node</span><span class="o">.</span><span class="n">nid</span> <span class="k">as</span> <span class="n">triage_rules_id</span><span class="p">,</span>
 <span class="n">cid</span> <span class="k">as</span> <span class="n">component_id</span><span class="p">,</span>
 <span class="n">form_key</span><span class="p">,</span>
 <span class="n">name</span><span class="p">,</span>
@@ -798,7 +798,7 @@ and tid not in (SELECT parent from taxonomy_term_hierarchy)
 </div>
 <div class="section" id="triage-rules-webform-conditionals">
 <h3>Triage rules webform conditionals<a class="headerlink" href="#triage-rules-webform-conditionals" title="Permalink to this headline">¶</a></h3>
-<div class="code sql highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="n">webform_conditional_rules</span><span class="o">.</span><span class="n">nid</span><span class="p">,</span>
+<div class="code sql highlight-default"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="n">webform_conditional_rules</span><span class="o">.</span><span class="n">nid</span><span class="p">,</span>
 <span class="n">webform_conditional_rules</span><span class="o">.</span><span class="n">rgid</span><span class="p">,</span>
 <span class="n">rid</span><span class="p">,</span>
 <span class="n">source_type</span><span class="p">,</span>
@@ -819,7 +819,7 @@ and tid not in (SELECT parent from taxonomy_term_hierarchy)
 <h2>Services with Online Intake<a class="headerlink" href="#services-with-online-intake" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="list-of-services-that-have-at-least-one-intake-settings">
 <h3>List of services that have at least one intake settings<a class="headerlink" href="#list-of-services-that-have-at-least-one-intake-settings" title="Permalink to this headline">¶</a></h3>
-<div class="code sql highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Select</span> <span class="n">node</span><span class="o">.</span><span class="n">nid</span> <span class="k">as</span> <span class="n">service_id</span><span class="p">,</span>
+<div class="code sql highlight-default"><div class="highlight"><pre><span></span><span class="n">Select</span> <span class="n">node</span><span class="o">.</span><span class="n">nid</span> <span class="k">as</span> <span class="n">service_id</span><span class="p">,</span>
 <span class="n">node</span><span class="o">.</span><span class="n">title</span> <span class="k">as</span> <span class="n">service_title</span><span class="p">,</span>
 <span class="n">node</span><span class="o">.</span><span class="n">status</span><span class="p">,</span>
 <span class="n">field_data_field_location_ref</span><span class="o">.</span><span class="n">field_location_ref_target_id</span> <span class="k">as</span> <span class="n">location_id</span><span class="p">,</span>
@@ -840,7 +840,7 @@ and tid not in (SELECT parent from taxonomy_term_hierarchy)
 </div>
 <div class="section" id="list-of-services-with-limited-populations-served">
 <h3>List of services with limited populations served<a class="headerlink" href="#list-of-services-with-limited-populations-served" title="Permalink to this headline">¶</a></h3>
-<div class="code sql highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Select</span> <span class="n">node</span><span class="o">.</span><span class="n">nid</span> <span class="k">as</span> <span class="n">service_id</span><span class="p">,</span>
+<div class="code sql highlight-default"><div class="highlight"><pre><span></span><span class="n">Select</span> <span class="n">node</span><span class="o">.</span><span class="n">nid</span> <span class="k">as</span> <span class="n">service_id</span><span class="p">,</span>
 <span class="n">node</span><span class="o">.</span><span class="n">title</span> <span class="k">as</span> <span class="n">service_title</span><span class="p">,</span>
 <span class="n">status</span><span class="p">,</span>
 <span class="n">field_data_field_limited_populations</span><span class="o">.</span><span class="n">field_limited_populations_tid</span> <span class="k">as</span> <span class="n">term_id</span><span class="p">,</span>
@@ -857,7 +857,7 @@ and tid not in (SELECT parent from taxonomy_term_hierarchy)
 <div class="section" id="list-of-services-with-lowest-level-legal-issues">
 <h3>List of services with lowest-level legal issues<a class="headerlink" href="#list-of-services-with-lowest-level-legal-issues" title="Permalink to this headline">¶</a></h3>
 <p>We use only the lowest level since that’s what users are forced to drill down to.</p>
-<div class="code sql highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Select</span> <span class="n">node</span><span class="o">.</span><span class="n">nid</span> <span class="k">as</span> <span class="n">service_id</span><span class="p">,</span>
+<div class="code sql highlight-default"><div class="highlight"><pre><span></span><span class="n">Select</span> <span class="n">node</span><span class="o">.</span><span class="n">nid</span> <span class="k">as</span> <span class="n">service_id</span><span class="p">,</span>
 <span class="n">node</span><span class="o">.</span><span class="n">title</span> <span class="k">as</span> <span class="n">service_title</span><span class="p">,</span>
 <span class="n">node</span><span class="o">.</span><span class="n">status</span><span class="p">,</span>
 <span class="n">tid</span> <span class="k">as</span> <span class="n">term_id</span><span class="p">,</span>
@@ -882,7 +882,7 @@ and tid not in (SELECT parent from taxonomy_term_hierarchy)
 </div>
 <div class="section" id="services-vs-intake-settings-geographic-coverage">
 <h3>Services vs intake settings geographic coverage<a class="headerlink" href="#services-vs-intake-settings-geographic-coverage" title="Permalink to this headline">¶</a></h3>
-<div class="code sql highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Select</span> <span class="n">oas_intake_settings</span><span class="o">.</span><span class="n">name</span> <span class="k">as</span> <span class="n">intake_settings</span><span class="p">,</span>
+<div class="code sql highlight-default"><div class="highlight"><pre><span></span><span class="n">Select</span> <span class="n">oas_intake_settings</span><span class="o">.</span><span class="n">name</span> <span class="k">as</span> <span class="n">intake_settings</span><span class="p">,</span>
 <span class="n">field_data_field_same_service_area_as_locat</span><span class="o">.</span><span class="n">entity_id</span> <span class="k">as</span> <span class="n">intake_settings_id</span><span class="p">,</span>
 <span class="n">oas_intake_settings</span><span class="o">.</span><span class="n">enabled</span> <span class="k">as</span> <span class="n">status</span><span class="p">,</span>
 <span class="n">field_data_field_same_service_area_as_locat</span><span class="o">.</span><span class="n">field_same_service_area_as_locat_value</span>
@@ -901,7 +901,7 @@ and tid not in (SELECT parent from taxonomy_term_hierarchy)
 </div>
 <div class="section" id="services-by-eligibility-type">
 <h3>Services by eligibility type<a class="headerlink" href="#services-by-eligibility-type" title="Permalink to this headline">¶</a></h3>
-<div class="code sql highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">Select</span> <span class="n">entity_id</span> <span class="k">as</span> <span class="n">service_id</span> <span class="p">,</span> <span class="n">title</span> <span class="k">as</span> <span class="n">service_name</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span>
+<div class="code sql highlight-default"><div class="highlight"><pre><span></span> <span class="n">Select</span> <span class="n">entity_id</span> <span class="k">as</span> <span class="n">service_id</span> <span class="p">,</span> <span class="n">title</span> <span class="k">as</span> <span class="n">service_name</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span>
  <span class="n">CASE</span>
   <span class="n">WHEN</span> <span class="n">field_service_eligibility_value</span> <span class="o">=</span> <span class="mi">1</span>
    <span class="n">THEN</span> <span class="s1">&#39;Free to everyone&#39;</span>
@@ -922,7 +922,7 @@ and tid not in (SELECT parent from taxonomy_term_hierarchy)
 </div>
 <div class="section" id="legal-issues-combined-table">
 <h3>Legal issues combined table<a class="headerlink" href="#legal-issues-combined-table" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">Select</span> <span class="n">triage_id</span><span class="p">,</span> <span class="n">intake_status</span><span class="p">,</span>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">Select</span> <span class="n">triage_id</span><span class="p">,</span> <span class="n">intake_status</span><span class="p">,</span>
 <span class="n">field_data_field_triage_problem</span><span class="p">.</span><span class="n">field_triage_problem_tid</span><span class="p">,</span>
 <span class="n">taxonomy_term_data</span><span class="p">.</span><span class="n">name</span><span class="p">,</span>
 <span class="p">(</span><span class="k">Select</span> <span class="n">name</span> <span class="k">from</span> <span class="n">taxonomy_term_data</span> <span class="k">where</span> <span class="n">tid</span> <span class="o">=</span>
@@ -944,7 +944,7 @@ and tid not in (SELECT parent from taxonomy_term_hierarchy)
 </div>
 <div class="section" id="help-type-requested-by-triage-user">
 <h3>Help type requested by triage user<a class="headerlink" href="#help-type-requested-by-triage-user" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">triage_id</span><span class="p">,</span>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">triage_id</span><span class="p">,</span>
 <span class="n">GROUP_CONCAT</span><span class="p">(</span><span class="n">field_data_oas_triage_help_type</span><span class="p">.</span><span class="n">oas_triage_help_type_value</span><span class="p">)</span>
 <span class="k">from</span> <span class="n">oas_triage_user</span>
 <span class="k">inner</span> <span class="k">join</span> <span class="n">field_data_oas_triage_help_type</span> <span class="k">on</span> <span class="n">triage_id</span> <span class="o">=</span> <span class="n">entity_id</span>

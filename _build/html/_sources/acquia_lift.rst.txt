@@ -17,6 +17,7 @@ Our production instance has a name of ILAO Production and a site ID of ilao_prod
    acquia_ilao_touch_data
    acquia_ilao_event_data
    acquia_ilao_segments
+   acquia_data
 
 Tracking
 =========
