@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Data Integrations &mdash; ILAO 2.19.0 documentation</title>
+  <title>Downloading Data from Acquia Lift &mdash; ILAO 2.19.0 documentation</title>
   
 
   
@@ -28,8 +28,8 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Google Analytics Integration" href="google_analytics.html" />
-    <link rel="prev" title="SMS OTIS Confirmations &amp; Reminders" href="sms_otis.html" /> 
+    <link rel="next" title="Recommendation Algorithm" href="recommendation_algorithm.html" />
+    <link rel="prev" title="Acquia Data Set" href="acquia_data.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -103,9 +103,23 @@
 <li class="toctree-l1"><a class="reference internal" href="seo.html">SEO Information</a></li>
 <li class="toctree-l1"><a class="reference internal" href="translation_management.html">Translation Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sms_integrations.html">SMS Integrations</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Data Integrations</a><ul>
+<li class="toctree-l1 current"><a class="reference internal" href="data_integrations.html">Data Integrations</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="google_analytics.html">Google Analytics Integration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="acquia_lift.html">Acquia Lift Integration</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="acquia_lift.html">Acquia Lift Integration</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="acquia_lift.html#core-configuration">Core Configuration</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="acquia_data_overview.html">Profile Data Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="acquia_default_data.html">General data collected by Acquia Lift</a></li>
+<li class="toctree-l4"><a class="reference internal" href="acquia_ilao_person_data.html">ILAO person custom data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="acquia_ilao_touch_data.html">ILAO touch (page view) custom data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="acquia_ilao_event_data.html">ILAO Specific Event data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="acquia_ilao_segments.html">ILAO Segments</a></li>
+<li class="toctree-l4"><a class="reference internal" href="acquia_data.html">Acquia Data Set</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Downloading Data from Acquia Lift</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="acquia_lift.html#tracking">Tracking</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="recommendation_algorithm.html">Recommendation Algorithm</a></li>
 </ul>
 </li>
@@ -156,13 +170,17 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>Data Integrations</li>
+          <li><a href="data_integrations.html">Data Integrations</a> &raquo;</li>
+        
+          <li><a href="acquia_lift.html">Acquia Lift Integration</a> &raquo;</li>
+        
+      <li>Downloading Data from Acquia Lift</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="_sources/data_integrations.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/acquia_download.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -175,31 +193,52 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="data-integrations">
-<h1>Data Integrations<a class="headerlink" href="#data-integrations" title="Permalink to this headline">¶</a></h1>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="google_analytics.html">Google Analytics Integration</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="ga_integrated_data.html">Google Analytics Data In Website</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ga_tags.html">Defined Tags</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ga_events.html">Google Analytics Events</a></li>
+  <div class="section" id="downloading-data-from-acquia-lift">
+<h1>Downloading Data from Acquia Lift<a class="headerlink" href="#downloading-data-from-acquia-lift" title="Permalink to this headline">¶</a></h1>
+<p>Note:  this requires that the computer have the AWS command line tools installed.</p>
+<div class="section" id="step-1-request-the-exports-be-generated">
+<h2>Step 1:  Request the exports be generated<a class="headerlink" href="#step-1-request-the-exports-be-generated" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Log into <cite>Acquia Lift &lt;https://us-east-1.lift.acquia.com/#personsearch:accountId=ILAO;</cite>&gt;_</li>
+<li>Go to Configure and click on Import/Export</li>
+<li>Click Export Data</li>
+<li>Set the “from” date to 31 days from the current date (the date of the last export)</li>
+<li>Check data exports for person, touch, event, and rankings</li>
+<li>Include the email address and tracking ID</li>
+<li>Press Ok</li>
 </ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="acquia_lift.html">Acquia Lift Integration</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="acquia_lift.html#core-configuration">Core Configuration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="acquia_lift.html#tracking">Tracking</a></li>
+<p>It may take a while to generate the exports.</p>
+</div>
+<div class="section" id="step-2-verify-that-the-exports-were-created">
+<h2>Step 2:  Verify that the exports were created<a class="headerlink" href="#step-2-verify-that-the-exports-were-created" title="Permalink to this headline">¶</a></h2>
+<p>While logged into Acquia Lift and on the Import/Export page:</p>
+<ul class="simple">
+<li>Press search</li>
+<li>Verify that the list of exported files appear with a status of Completed</li>
 </ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="recommendation_algorithm.html">Recommendation Algorithm</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="recommendation_algorithm.html#overview">Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="recommendation_algorithm.html#generating-the-recommendations">Generating the recommendations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="recommendation_algorithm.html#google-analytics-data-files">Google Analytics Data Files</a></li>
-<li class="toctree-l2"><a class="reference internal" href="recommendation_algorithm.html#category-csv">Category CSV</a></li>
-<li class="toctree-l2"><a class="reference internal" href="recommendation_algorithm.html#running-the-python-script">Running the Python Script</a></li>
-<li class="toctree-l2"><a class="reference internal" href="recommendation_algorithm.html#import-the-recommendations">Import the recommendations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="recommendation_algorithm.html#older-technical-information">Older technical information</a></li>
+</div>
+<div class="section" id="step-3-get-the-list-of-exports">
+<h2>Step 3: Get the list of exports<a class="headerlink" href="#step-3-get-the-list-of-exports" title="Permalink to this headline">¶</a></h2>
+<p>Each CSV file generated is actually broken into multiple files due to their size.  To get the full list of files in our outbox:</p>
+<ul class="simple">
+<li>Open up a command line interface</li>
+<li>Enter aws s3 ls s3://lift.prod.api-file.us-east-1/ILAO/OUTBOX/</li>
+<li>This will display the list of files</li>
 </ul>
-</li>
+</div>
+<div class="section" id="step-4-download-the-individual-files-and-move-to-shared-drive">
+<h2>Step 4: Download the individual files and move to shared drive<a class="headerlink" href="#step-4-download-the-individual-files-and-move-to-shared-drive" title="Permalink to this headline">¶</a></h2>
+<p>Download each file individually, from the command line.  The command to download is:</p>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="x">aws s3 cp s3://lift.prod.api-file.us-east-1/ILAO/OUTBOX/[filename] ./</span>
+</pre></div>
+</div>
+<p>This will copy the file to the current directory. Once each complete CSV is downloaded (usually 4 files), they can be moved to the shared drive:</p>
+<ul class="simple">
+<li>The folder they go in is Program/Technology Development/Acquia Lift Data</li>
+<li>Create a new folder for the current date formatted as yyyy-mm-dd</li>
+<li>Create a folder for each type of data (rankings, event, person, touch)</li>
+<li>Copy and paste the files for each into the correct folder</li>
+<li>Delete the originals from  your local downloads</li>
 </ul>
 </div>
 </div>
@@ -212,10 +251,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="google_analytics.html" class="btn btn-neutral float-right" title="Google Analytics Integration" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="recommendation_algorithm.html" class="btn btn-neutral float-right" title="Recommendation Algorithm" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="sms_otis.html" class="btn btn-neutral" title="SMS OTIS Confirmations &amp; Reminders" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="acquia_data.html" class="btn btn-neutral" title="Acquia Data Set" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
