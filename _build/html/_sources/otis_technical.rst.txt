@@ -14,9 +14,14 @@ Intake is available when:
  * intake settings is set to enabled
  * the current count of intakes is less than the number of intakes allowed or the intake limit is set to unlimited
  * there are triage rules that
+
    * match the service associated with an intake setting
    * match the intake settings on legal issue
    * are published
+ * there is an income match on the service:
+   
+   * if the user indicates "no" on the starting income question, this is ignored
+   * if the user indicates "yes" on the starting income quesiton, the system checks the intake settings to see if income is waived for any populations; the user must then match on the population
 
 .. note::
 

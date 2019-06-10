@@ -146,6 +146,7 @@
 <li class="toctree-l1"><a class="reference internal" href="sms_integrations.html">SMS Integrations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data_integrations.html">Data Integrations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tech_styles.html">Website Styles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rentervention.html">Rentervention</a></li>
 </ul>
 
             
@@ -225,10 +226,17 @@
 <li>the user matches the service on population, or the service is open to all</li>
 <li>intake settings is set to enabled</li>
 <li>the current count of intakes is less than the number of intakes allowed or the intake limit is set to unlimited</li>
-<li>there are triage rules that
-* match the service associated with an intake setting
-* match the intake settings on legal issue
-* are published</li>
+<li>there are triage rules that<ul>
+<li>match the service associated with an intake setting</li>
+<li>match the intake settings on legal issue</li>
+<li>are published</li>
+</ul>
+</li>
+<li>there is an income match on the service:<ul>
+<li>if the user indicates “no” on the starting income question, this is ignored</li>
+<li>if the user indicates “yes” on the starting income quesiton, the system checks the intake settings to see if income is waived for any populations; the user must then match on the population</li>
+</ul>
+</li>
 </ul>
 </div></blockquote>
 <div class="admonition note">
