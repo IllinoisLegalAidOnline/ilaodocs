@@ -2,6 +2,8 @@
 Acquia Data Set
 =========================
 
+This defines the various fields availabie in Acquia's data set.
+
 Person
 =======
 +-----------------+-----------------------------------------------------+
